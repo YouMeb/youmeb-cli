@@ -1,0 +1,21 @@
+{
+  "name": "youmeb-cli",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "youmeb-cli": "youmeb.js"
+  },
+  "dependencies": {
+    "cliox": "~0.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "youmeb"
+  ],
+  "author": "Po-Ying Chen <poying.me@gmail.com>",
+  "license": "MIT"
+}
