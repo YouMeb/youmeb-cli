@@ -131,6 +131,8 @@ parser.parse(process.argv.slice(2), function (err) {
           data.commands[i] = item.join('  ');
         });
 
+        data.commands = data.commands.sort();
+
         str = data.commands.join('\n');
 
         str = '\n'
