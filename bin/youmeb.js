@@ -67,65 +67,81 @@ parser.parse(process.argv.slice(2), function (err) {
 
   // help
   if (parser.get('help')) {
-    var data = {
-      header: ['  youmeb [options] [command]'],
-      // [name, args, msg]
-      commands: [
-        ['new', '[app]', 'create new applocation']
-      ]
-    };
 
-    (function (log) {
+    (function (help) {
       if (cli) {
-        cli.youmeb.emit('help', command, data, log);
+        cli.boot(function (err) {
+          if (err) {
+            return done(err);
+          }
+          help();
+        });
       } else {
-        log();
+        help();
       }
-    })(function (err) {
-      if (err) {
-        return done(err);
-      }
+    })(function () {
 
-      var txtlen = [];
-      var str;
-      
-      data.commands.forEach(function (item) {
-        item.forEach(function (field, i) {
-          var len = field.length;
-          if (txtlen[i] | 0 < len) {
-            txtlen[i] = len;
-          }
+      var data = {
+        header: ['  youmeb [options] [command]'],
+        // [name, args, msg]
+        commands: [
+          ['new', '[app]', 'create new applocation']
+        ]
+      };
+
+      (function (log) {
+        if (cli) {
+          cli.youmeb.emit('help', command, data, log);
+        } else {
+          log();
+        }
+      })(function (err) {
+        if (err) {
+          return done(err);
+        }
+
+        var txtlen = [];
+        var str;
+        
+        data.commands.forEach(function (item) {
+          item.forEach(function (field, i) {
+            var len = field.length;
+            if ((txtlen[i] | 0) < len) {
+              txtlen[i] = len;
+            }
+          });
         });
-      });
 
-      data.commands.forEach(function (item, i) {
-        item.forEach(function (field, j) {
-          var k = txtlen[j] - field.length;
-          while (k--) {
-            field += ' ';
-          }
-          switch (j) {
-            case 0:
-              field = '    ' + field.green;
-              break;
-            case 1:
-              field = field.grey;
-              break;
-          }
-          item[j] = field;
+        data.commands.forEach(function (item, i) {
+          item.forEach(function (field, j) {
+            var k = txtlen[j] - field.length;
+            while (k--) {
+              field += ' ';
+            }
+            switch (j) {
+              case 0:
+                field = '    ' + field.green;
+                break;
+              case 1:
+                field = field.grey;
+                break;
+            }
+            item[j] = field;
+          });
+          data.commands[i] = item.join('  ');
         });
-        data.commands[i] = item.join('  ');
+
+        str = data.commands.join('\n');
+
+        str = '\n'
+          + data.header.join('\n') + '\n\n'
+          + '  Commands:\n\n'
+          + str + '\n';
+
+        console.log(str);
+        done();
       });
-
-      str = data.commands.join('\n');
-
-      str = '\n'
-        + data.header.join('\n') + '\n\n'
-        + '  Commands:\n\n'
-        + str + '\n';
-
-      console.log(str);
-      done();
+    
     });
     return;
   }
