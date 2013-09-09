@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "bin": {
-    "youmeb-cli": "youmeb.js"
+    "youmeb": "./bin/youmeb.js"
   },
   "dependencies": {
-    "cliox": "~0.0.4"
+    "youmeb-generator": "0.0.0",
+    "cliopt": "0.0.5",
+    "colors": "~0.6.2"
   },
   "devDependencies": {},
   "scripts": {
