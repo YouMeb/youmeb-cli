@@ -7,8 +7,7 @@
   ],
   "dependencies": {
     "youmeb": "*",
-    "youmeb-api-angularjs": "*",
-    "jade": "*"
+    "youmeb-api-angularjs": "*"
   },
   "license": "MIT"
 }
