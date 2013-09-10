@@ -1,3 +1,14 @@
 {
-  "name": "youmeb-app"
+  "name": "app",
+  "version": "0.0.0",
+  "main": "app.js",
+  "keywords": [
+    "youmeb-application"
+  ],
+  "dependencies": {
+    "youmeb": "*",
+    "youmeb-api-angularjs": "*",
+    "jade": "*"
+  },
+  "license": "MIT"
 }
