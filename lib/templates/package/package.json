@@ -1,0 +1,6 @@
+{
+  "name": "youmeb-package",
+  "version": "0.0.0",
+  "keywords": ["youmeb-package"],
+  "main": "index.js"
+}
