@@ -3,7 +3,7 @@
   "host": "localhost",
   "controllers": "controllers",
   "error": {
-    "format": "{level:x}{module:xxx}{code:xx}",
+    "format": "{level:1}{module:3}{code:2}",
     "file": "errors"
   },
   "logger": {
