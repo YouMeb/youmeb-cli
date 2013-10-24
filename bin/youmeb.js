@@ -25,7 +25,6 @@ var parser = cliopt({
     default: process.cwd()
   }
 });
-
 parser.use(cliopt.pair());
 parser.use(cliopt.convert());
 
@@ -40,7 +39,6 @@ if (exists) {
   // 載入 youmeb-cli
   cli = require(path.join(dir, 'lib/youmeb-cli.js'));
 }
-
 clipkg = require(path.join(__dirname, '../package.json'));
 
 var done = function (err) {
@@ -53,6 +51,11 @@ parser.parse(process.argv.slice(2), function (err) {
   if (err) {
     throw err;
   }
+  //判斷這個資料夾目錄是否為YouMebJS專案
+
+  if(process.argv.slice(2).length == 0 && !exists){
+      console.log('Sorry, this path '+process.cwd().blue+' dont have the YouMebJS project.\nPlease type '+'\'youmeb new\''.green+' to add a new YouMebJS project.');
+  }
 
   // version
   if (parser.get('version')) {
@@ -64,7 +67,7 @@ parser.parse(process.argv.slice(2), function (err) {
   }
   
   var command = parser.args.shift();
-
+  
   // help
   if (parser.get('help')) {
 
@@ -161,11 +164,14 @@ parser.parse(process.argv.slice(2), function (err) {
   // 檢查 youmeb-cli 是否有這個 command
   if (commands.hasOwnProperty(command)) {
     return commands[command](parser.args, done);
+  }else{
+    console.log('Sorry, there is no '+command.blue+' in YouMebJS Commands.\nPlease type '+'\'youmeb --help\''.green+' to find you want to do.');
   }
 
-  // 使用 youmeb 的 command 
+  // 使用 youmebJS 的 command 
   if (cli) {
     cli.boot(function (err) {
+      //console.log(err);
       if (err) {
         return done(err);
       }
