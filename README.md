@@ -1,7 +1,7 @@
 youmeb-cli
 ==========
 
-YouMebJS main command line.
+CLI tool for scaffolding out YouMebJS nodeJS framework!
 
 ##Install
 
