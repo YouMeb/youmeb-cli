@@ -52,7 +52,6 @@ parser.parse(process.argv.slice(2), function (err) {
     throw err;
   }
   //判斷這個資料夾目錄是否為YouMebJS專案
-
   if(process.argv.slice(2).length == 0 && !exists){
       console.log('Sorry, this path '+process.cwd().blue+' dont have the YouMebJS project.\nPlease type '+'\'youmeb new\''.green+' to add a new YouMebJS project.');
   }
@@ -88,7 +87,8 @@ parser.parse(process.argv.slice(2), function (err) {
         header: ['  youmeb [options] [command]'],
         // [name, args, msg]
         commands: [
-          ['new', '[app]', 'create new applocation']
+          ['new', '[app]', 'create new applocation.'],
+          ['doc', '', 'See YouMebJS documents.']
         ]
       };
 

@@ -9,7 +9,9 @@
   "dependencies": {
     "youmeb-generator": "0.0.0",
     "cliopt": "0.0.5",
-    "colors": "~0.6.2"
+    "colors": "~0.6.2",
+    "open": "0.0.4",
+    "prompt": "~0.2.11"
   },
   "devDependencies": {},
   "scripts": {
