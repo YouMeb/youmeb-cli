@@ -38,6 +38,7 @@ if (exists) {
 
   // 載入 youmeb-cli
   cli = require(path.join(dir, 'lib/youmeb-cli.js'));
+  cli.youmeb.inquirer = require('inquirer');
 }
 clipkg = require(path.join(__dirname, '../package.json'));
 
@@ -88,6 +89,7 @@ parser.parse(process.argv.slice(2), function (err) {
         // [name, args, msg]
         commands: [
           ['new', '[app]', 'create new applocation.'],
+          ['new:package', '[package]', 'create new package.'],
           ['doc', '', 'See YouMebJS documents.']
         ]
       };

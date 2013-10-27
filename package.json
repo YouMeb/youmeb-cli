@@ -11,7 +11,7 @@
     "cliopt": "0.0.5",
     "colors": "~0.6.2",
     "open": "0.0.4",
-    "prompt": "~0.2.11"
+    "inquirer": "~0.3.4"
   },
   "devDependencies": {},
   "scripts": {
