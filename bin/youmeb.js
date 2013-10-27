@@ -38,7 +38,6 @@ if (exists) {
 
   // 載入 youmeb-cli
   cli = require(path.join(dir, 'lib/youmeb-cli.js'));
-  cli.youmeb.inquirer = require('inquirer');
 }
 clipkg = require(path.join(__dirname, '../package.json'));
 
