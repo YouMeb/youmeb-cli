@@ -165,8 +165,6 @@ parser.parse(process.argv.slice(2), function (err) {
   // 檢查 youmeb-cli 是否有這個 command
   if (commands.hasOwnProperty(command)) {
     return commands[command](parser.args, done);
-  }else{
-    console.log('Sorry, there is no '+command.blue+' in YouMebJS Commands.\nPlease type '+'\'youmeb --help\''.green+' to find you want to do.');
   }
 
   // 使用 youmebJS 的 command 
